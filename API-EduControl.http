@@ -1,0 +1,6 @@
+@API_EduControl_HostAddress = http://localhost:5009
+
+GET {{API_EduControl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
