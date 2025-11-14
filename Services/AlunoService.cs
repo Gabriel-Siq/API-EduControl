@@ -25,8 +25,7 @@ namespace API_EduControl.Services
             {
                 Nome = dto.Nome,
                 Email = dto.Email,
-                DataNascimento = dto.DataNascimento,
-                CursoId = dto.CursoId
+                DataNascimento = dto.DataNascimento
             };
 
             _context.Aluno.Add(aluno);
@@ -51,7 +50,6 @@ namespace API_EduControl.Services
             aluno.Nome = alunoAtualizado.Nome;
             aluno.Email = alunoAtualizado.Email;
             aluno.DataNascimento = alunoAtualizado.DataNascimento;
-            aluno.CursoId = alunoAtualizado.CursoId;
 
             await _context.SaveChangesAsync();
 

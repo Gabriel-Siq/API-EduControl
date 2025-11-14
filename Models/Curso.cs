@@ -6,7 +6,6 @@
         public string Nome { get; set; }
         public string Descricao { get; set; } = null!;
 
-
-        public List<Aluno>? Alunos { get; set; }
+        public ICollection<Matricula>? Matriculas { get; set; }
     }
 }

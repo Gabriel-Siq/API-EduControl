@@ -7,9 +7,7 @@
         public string Email { get; set; }
         public DateTime? DataNascimento { get; set; }
 
-
-        public int CursoId { get; set; }
-        public Curso? Curso { get; set; }
+        public ICollection<Matricula>? Matriculas { get; set; }
 
     }
 }
