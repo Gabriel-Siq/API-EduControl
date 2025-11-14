@@ -30,9 +30,6 @@ namespace API_EduControl.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlunoId"));
 
-                    b.Property<int>("CursoId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("DataNascimento")
                         .HasColumnType("datetime2");
 
@@ -46,9 +43,7 @@ namespace API_EduControl.Migrations
 
                     b.HasKey("AlunoId");
 
-                    b.HasIndex("CursoId");
-
-                    b.ToTable("Alunos");
+                    b.ToTable("Aluno");
                 });
 
             modelBuilder.Entity("API_EduControl.Models.Curso", b =>
@@ -69,23 +64,59 @@ namespace API_EduControl.Migrations
 
                     b.HasKey("CursoId");
 
-                    b.ToTable("Cursos");
+                    b.ToTable("Curso");
                 });
 
-            modelBuilder.Entity("API_EduControl.Models.Aluno", b =>
+            modelBuilder.Entity("API_EduControl.Models.Matricula", b =>
                 {
-                    b.HasOne("API_EduControl.Models.Curso", "Curso")
-                        .WithMany("Alunos")
-                        .HasForeignKey("CursoId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlunoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CursoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlunoId");
+
+                    b.HasIndex("CursoId");
+
+                    b.ToTable("Matriculas");
+                });
+
+            modelBuilder.Entity("API_EduControl.Models.Matricula", b =>
+                {
+                    b.HasOne("API_EduControl.Models.Aluno", "Aluno")
+                        .WithMany("Matriculas")
+                        .HasForeignKey("AlunoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("API_EduControl.Models.Curso", "Curso")
+                        .WithMany("Matriculas")
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Aluno");
 
                     b.Navigation("Curso");
                 });
 
+            modelBuilder.Entity("API_EduControl.Models.Aluno", b =>
+                {
+                    b.Navigation("Matriculas");
+                });
+
             modelBuilder.Entity("API_EduControl.Models.Curso", b =>
                 {
-                    b.Navigation("Alunos");
+                    b.Navigation("Matriculas");
                 });
 #pragma warning restore 612, 618
         }
