@@ -47,7 +47,7 @@ namespace API_EduControl.Controllers
             return Ok(atualizado);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeletarAluno(int id)
         {
             if (id == 0)
