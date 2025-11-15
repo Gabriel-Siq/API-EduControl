@@ -41,12 +41,12 @@ Para executar o projeto **API-EduControl**, siga os passos abaixo:
 
 2. **Clone este repositório** para o seu computador:
    ```bash
-   git clone https://github.com/SEU-USUARIO/API-EduControl.git.
+   git clone https://github.com/Gabriel-Siq/API-EduControl.git.
 
 3. **Abra o projeto na sua IDE de preferência** (Visual Studio ou Visual Studio Code).
 4. **Configure a conexão com o banco de dados** no arquivo appsettings.json:
    ```bash
-   "ConnectionStrings": {"DefaultConnection": "Server=SEU_SERVIDOR;Database=EduControl;Trusted_Connection=True;TrustServerCertificate=True;"}
+   "ConnectionStrings": {"DefaultConnection": "Server=localhost;Database=EduControl;Trusted_Connection=True;TrustServerCertificate=True;"}
    ```
 5. **Aplique as migrations** para criar o banco de dados:
    - No terminal, execute:
@@ -71,13 +71,9 @@ O **API-EduControl** foi desenvolvido seguindo boas práticas de arquitetura e c
 
 - **Arquitetura em Camadas**: Separação entre responsabilidades — Controllers, Services, Interfaces, DTOs, Data e Models — garantindo organização e facilidade de manutenção.
 
-- **Princípios SOLID**: O código segue os princípios de design **SOLID**, promovendo alta coesão, baixo acoplamento e maior facilidade de evolução.
-
 - **Entity Framework Core**: Utilização do **Entity Framework Core** como ORM para mapeamento objeto-relacional, simplificando o acesso e manipulação dos dados no **SQL Server**.
 
 - **Migrations Automatizadas**: Controle de versão do banco de dados através de **migrations**, permitindo atualizações e alterações estruturais seguras.
-
-- **Injeção de Dependência (Dependency Injection)**: Utilização do container de injeção nativo do ASP.NET Core para gerenciar serviços e dependências de forma limpa e desacoplada.
 
 - **ASP.NET Core Web API**: Implementação de uma API RESTful moderna utilizando o **.NET 8**, com endpoints organizados e documentados via **Swagger**.
 
